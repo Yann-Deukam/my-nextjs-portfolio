@@ -42,7 +42,7 @@ body {
   }
 
   .glass {
-    @apply backdrop-blur-xl border border-white/20 bg-zinc-500/20;
+    @apply backdrop-blur-xl border border-white/20;
   }
 }
 
@@ -68,4 +68,24 @@ body {
 /* Hover effect for the thumb */
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555; /* Darker color on hover */
+}
+
+.outline-text {
+  color: transparent; /* Make the text inside transparent */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2); /* Outline color and thickness */
+}
+
+@keyframes gradient-xy {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-xy {
+  animation: gradient-xy 3s ease infinite;
+  background-size: 200% 200%;
 }

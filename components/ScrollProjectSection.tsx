@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import About from "./About";
 
 function ScrollProjectSection() {
   const sectionRef = useRef(null);
@@ -17,7 +18,7 @@ function ScrollProjectSection() {
         translateX: 0,
       },
       {
-        translateX: "-300vw",
+        translateX: "-400vw",
         ease: "none",
         duration: 1,
         scrollTrigger: {
@@ -39,7 +40,14 @@ function ScrollProjectSection() {
       <div ref={triggerRef}>
         <div ref={sectionRef} className="scroll-section-inner">
           <div className="scroll-section">
-            <h3>Section 1</h3>
+            {/* <h3>Section 1</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Consectetur fuga fugit sunt. Perferendis perspiciatis ex debitis,
+              similique veritatis error a doloremque dicta, soluta totam ipsa
+              molestiae quibusdam sint iure ipsum.
+            </p> */}
+            <About />
           </div>
           <div className="scroll-section">
             <h3>Section 2</h3>

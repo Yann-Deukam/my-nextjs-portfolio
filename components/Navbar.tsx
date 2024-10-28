@@ -6,16 +6,14 @@ const Navbar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <nav className="w-full px-6 py-4 fixed top-3 left-0 right-0">
-        <div className="flex items-center justify-between mx-20">
-          {/* Logo */}
+        <div className="flex items-center justify-between mx-5 md:mx-10 lg:mx-20">
           <h1 className="text-2xl font-bold">
             <a href="#home">G-ni Design</a>
           </h1>
 
-          {/* Centered Nav Items for Desktop */}
-          <div className="hidden md:flex flex-1 justify-center space-x-6 glass rounded-full max-w-[500px] py-3 px-6">
+          <div className="hidden md:flex flex-1 justify-center space-x-6 glass bg-zinc-500/30 rounded-full md:max-w-[400px] lg:max-w-[500px] py-3 px-6 text-md">
             <a href="#home" className="hover:text-gray-400">
               Home
             </a>
@@ -30,7 +28,6 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Contact Button for Desktop */}
           <div className="hidden md:flex">
             <a
               href="#contact"
@@ -39,8 +36,6 @@ const Navbar = () => {
               Contact Us
             </a>
           </div>
-
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2 focus:outline-none"
             onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
@@ -49,7 +44,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Nav */}
         {isMobileNavOpen && <MobileNav />}
       </nav>
     </div>
