@@ -30,7 +30,7 @@ body {
   }
 
   .scroll-section-inner {
-    @apply h-[100vh] w-[400vw] flex flex-row relative;
+    @apply h-[100vh] w-[500vw] flex flex-row relative;
   }
 
   .scroll-section {
@@ -45,9 +45,18 @@ body {
     @apply backdrop-blur-xl border border-white/20;
   }
 
+  .menu-bar {
+    @apply flex items-center justify-between p-4 fixed top-0 left-0 w-full z-50;
+  }
+
   .menu-bar,
   .menu-overlay {
     @apply fixed top-0 left-0 p-2 flex justify-between items-center z-10;
+  }
+
+  .menu-overlay {
+    @apply fixed top-0 left-0 w-full h-full bg-green-900 flex flex-col z-50 transition-transform duration-500 ease-in-out;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   }
 
   .menu-bar a,
@@ -55,10 +64,14 @@ body {
     @apply cursor-pointer;
   }
 
-  .menu-overlay {
+  .menu-overlay-bar {
+    @apply flex justify-between items-center w-full px-6 py-4;
+  }
+
+  /* .menu-overlay {
     @apply fixed top-0 left-0 w-[100vw] h-[100vh] p-2 bg-purple-800 z-50;
     clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
-  }
+  } */
 
   .menu-close-icon {
     @apply flex flex-[2] items-end cursor-pointer;
@@ -82,7 +95,7 @@ body {
   }
 
   .menu-link-item-holder {
-    @apply relative;
+    @apply relative py-3;
   }
 
   .menu-link-item-holder a {
@@ -94,7 +107,23 @@ body {
   }
 
   .menu-info-col {
-    @apply flex flex-1 flex-col justify-end;
+    @apply flex flex-1 flex-row justify-start;
+  }
+
+  .scroll-section {
+    @apply flex flex-col;
+  }
+
+  .project-title {
+    @apply text-2xl font-bold;
+  }
+
+  .project-desc p {
+    @apply my-3 text-[var(--foreground)];
+  }
+
+  .project-desc a {
+    @apply text-[var(--foreground)];
   }
 }
 

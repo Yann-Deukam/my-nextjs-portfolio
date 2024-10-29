@@ -1,9 +1,15 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { Dribbble, Github, Instagram, Menu, Twitter, X } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import {
+  DribbbleIcon,
+  GithubIcon,
+  InstagramIcon,
+  TwitterIcon,
+} from "hugeicons-react";
 
 const MobileNav = () => {
   const container = useRef<HTMLDivElement | null>(null);
@@ -12,12 +18,12 @@ const MobileNav = () => {
   const tl = useRef<gsap.core.Timeline | null>(null);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   useGSAP(
     () => {
-      gsap.set(".menu-link-item-holder", { y: 75 }); // Add "." before class selector
+      gsap.set(".menu-link-item-holder", { y: 75 });
 
       tl.current = gsap
         .timeline({ paused: true })
@@ -46,74 +52,66 @@ const MobileNav = () => {
   }, [isOpen]);
 
   return (
-    <div className="menu-container" ref={container}>
-      <div className="menu-bar">
+    <div className="menu-container relative" ref={container}>
+      <div className="menu-bar flex items-center justify-between px-5">
         <div className="menu-logo">
           <h1 className="text-2xl font-bold">
             <a href="#home">G-ni Design</a>
           </h1>
         </div>
+        <div className="menu-open my-10 cursor-pointer" onClick={toggleMenu}>
+          {isOpen ? <X size={30} /> : <Menu size={30} />}
+        </div>
       </div>
-      <div className="menu-open my-10" onClick={toggleMenu}>
-        <Menu size={20} />
-      </div>
-      <div className="menu-overlay">
-        <div className="menu-overlay-bar">
+
+      <div className={`menu-overlay ${isOpen ? "block" : "hidden"}`}>
+        <div className="menu-overlay-bar flex justify-between items-center">
           <div className="menu-logo">
             <h1 className="text-2xl font-bold">
               <a href="#home">G-ni Design</a>
             </h1>
           </div>
-          <div className="menu-close" onClick={toggleMenu}>
-            <p>Close</p>
+          <div className="menu-close cursor-pointer" onClick={toggleMenu}>
+            <X size={20} />
           </div>
         </div>
-        <div className="menu-close-icon">
-          <X size={20} />
-        </div>
-        <div className="menu-copy">
+
+        <div className="menu-copy flex flex-col justify-between mx-5">
           <div className="menu-links">
-            <div className="menu-link-item">
-              <div className="menu-link-item-holder" onClick={toggleMenu}>
-                <a href="#home" className="menu-link">
-                  Home
-                </a>
+            {["Home", "About", "Services", "Projects"].map((item) => (
+              <div key={item} className="menu-link-item">
+                <div className="menu-link-item-holder" onClick={toggleMenu}>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="menu-link text-2xl font-medium"
+                  >
+                    {item}
+                  </a>
+                </div>
               </div>
-            </div>
-            <div className="menu-link-item">
-              <div className="menu-link-item-holder" onClick={toggleMenu}>
-                <a href="#about" className="menu-link">
-                  About
-                </a>
-              </div>
-            </div>
-            <div className="menu-link-item">
-              <div className="menu-link-item-holder" onClick={toggleMenu}>
-                <a href="#services" className="menu-link">
-                  Services
-                </a>
-              </div>
-            </div>
-            <div className="menu-link-item">
-              <div className="menu-link-item-holder" onClick={toggleMenu}>
-                <a href="#projects" className="menu-link">
-                  Projects
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
-          <div className="menu-info">
-            <div className="menu-info-col">
-              <a href="#">Instagram &#8599;</a>
-              <a href="#">X &#8599;</a>
-              <a href="#">Github &#8599;</a>
-              <a href="#">Dribbble &#8599;</a>
+          <div className="menu-info flex mt-20">
+            <div className="menu-info-col gap-3">
+              <a href="#" className="inline-flex items-center">
+                <InstagramIcon /> &#8599;
+              </a>
+              <a href="#" className="inline-flex items-center">
+                <TwitterIcon /> &#8599;
+              </a>
+              <a href="#" className="inline-flex items-center">
+                <GithubIcon /> &#8599;
+              </a>
+              <a href="#" className="inline-flex items-center">
+                <DribbbleIcon /> &#8599;
+              </a>
             </div>
           </div>
         </div>
+        {/* 
         <div className="menu-preview">
           <p>View something</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

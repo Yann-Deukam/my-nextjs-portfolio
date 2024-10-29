@@ -1,9 +1,22 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MobileNav from "./MobileNav";
 
 const Navbar = () => {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Update screen size check when the window resizes
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+
+    handleResize(); // Set initial value
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (isMobile) {
+    return <MobileNav />;
+  }
 
   return (
     <div className="relative z-50">
@@ -36,15 +49,7 @@ const Navbar = () => {
               Contact Us
             </a>
           </div>
-          <button
-            className="md:hidden p-2 focus:outline-none"
-            onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
-          >
-            <span className="material-icons">menu</span>
-          </button>
         </div>
-
-        {isMobileNavOpen && <MobileNav />}
       </nav>
     </div>
   );
