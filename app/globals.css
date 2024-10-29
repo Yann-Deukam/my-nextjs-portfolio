@@ -44,6 +44,58 @@ body {
   .glass {
     @apply backdrop-blur-xl border border-white/20;
   }
+
+  .menu-bar,
+  .menu-overlay {
+    @apply fixed top-0 left-0 p-2 flex justify-between items-center z-10;
+  }
+
+  .menu-bar a,
+  .menu-open p {
+    @apply cursor-pointer;
+  }
+
+  .menu-overlay {
+    @apply fixed top-0 left-0 w-[100vw] h-[100vh] p-2 bg-purple-800 z-50;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  }
+
+  .menu-close-icon {
+    @apply flex flex-[2] items-end cursor-pointer;
+  }
+
+  .menu-copy {
+    @apply flex flex-[4] flex-col justify-between pt-2;
+  }
+
+  .menu-preview {
+    @apply flex flex-[4] items-end justify-end;
+  }
+
+  .menu-close-icon p {
+    @apply text-6xl leading-[70%];
+  }
+
+  .menu-link-item {
+    width: max-content;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .menu-link-item-holder {
+    @apply relative;
+  }
+
+  .menu-link-item-holder a {
+    @apply text-2xl font-medium leading-[85%];
+  }
+
+  .menu-info {
+    @apply flex;
+  }
+
+  .menu-info-col {
+    @apply flex flex-1 flex-col justify-end;
+  }
 }
 
 /* Width of the scrollbar */

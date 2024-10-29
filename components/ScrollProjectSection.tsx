@@ -40,14 +40,12 @@ function ScrollProjectSection() {
       <div ref={triggerRef}>
         <div ref={sectionRef} className="scroll-section-inner">
           <div className="scroll-section">
-            {/* <h3>Section 1</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Consectetur fuga fugit sunt. Perferendis perspiciatis ex debitis,
-              similique veritatis error a doloremque dicta, soluta totam ipsa
-              molestiae quibusdam sint iure ipsum.
-            </p> */}
-            <About />
+            <div className="flex flex-col text-center items-center justify-center gap-8 h-[90vh]">
+              <span className="text-7xl font-bold">Projects</span>
+              <span className="font-semibold text-lg mx-20 opacity-50">
+                What I've been doing this whole time
+              </span>
+            </div>
           </div>
           <div className="scroll-section">
             <h3>Section 2</h3>
