@@ -3,7 +3,6 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import About from "./About";
 import Project from "./Project";
 
 function ScrollProjectSection() {
@@ -44,7 +43,7 @@ function ScrollProjectSection() {
             <div className="flex flex-col text-center items-center justify-center gap-8 h-[90vh]">
               <span className="text-7xl font-bold">Projects</span>
               <span className="font-semibold text-lg mx-20 opacity-50">
-                What I've been doing this whole time
+                What I&apos;ve been doing this whole time
               </span>
             </div>
           </div>

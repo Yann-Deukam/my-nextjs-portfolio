@@ -1,6 +1,5 @@
 "use client";
 
-import { Dribbble, Github, Instagram, Menu, Twitter, X } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -10,6 +9,7 @@ import {
   InstagramIcon,
   TwitterIcon,
 } from "hugeicons-react";
+import { Menu, X } from "lucide-react";
 
 const MobileNav = () => {
   const container = useRef<HTMLDivElement | null>(null);
